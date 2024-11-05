@@ -1,5 +1,4 @@
 
-
 CREATE TABLE fato_vendas (
  id_venda SERIAL  PRIMARY KEY,
  
@@ -25,8 +24,8 @@ CREATE TABLE fato_vendas (
 CREATE TABLE dimensao_produto (
 	produto_id SERIAL  PRIMARY KEY,
 	nome VARCHAR(100) NOT NULL,
-	descricao VARCHAR(200) NOT NULL,
-	categoria VARCHAR(50) NOT NULL,
+	descricao VARCHAR(200),
+	categoria VARCHAR(50),
 	marca VARCHAR(50) NOT NULL,
 );
 
@@ -34,25 +33,25 @@ CREATE TABLE dimensao_loja (
 	loja_id SERIAL PRIMARY KEY,
 	cidade VARCHAR(100) NOT NULL,
 	estado VARCHAR(50)  NOT NULL,
-	categoria VARCHAR(20)  NOT NULL,
-	porte VARCHAR(20)  NOT NULL,
-	franqueada BOOLEAN  NOT NULL
+	categoria VARCHAR(20),
+	porte VARCHAR(20),
+	franqueada BOOLEAN
 );
 
 
 CREATE TABLE dimensao_data (
 	data_id SERIAL PRIMARY KEY,
-	data ,
-	dia_semana,
-	mes INT,
-	semestre INT,
-	trimestre INT,
+	data_venda DATE NOT NULL,
+	dia_semana INT NOT NULL,
+	mes INT NOT NULL,
+	semestre INT NOT NULL,
+	trimestre INT NOT NULL,
 	ano INT NOT NULL
 );
 
 
 CREATE TABLE dimensao_pagamento (
 	pagamento_id SERIAL PRIMARY KEY,
-	pagamento_tipo ,
+	pagamento_tipo VARCHAR(100) NOT NULL,
 	descricao_tipo VARCHAR(200) NOT NULL
 );
