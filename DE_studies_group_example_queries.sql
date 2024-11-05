@@ -25,3 +25,14 @@ fato_vendas
 JOIN dimensao_produto ON dimensao_produto.produto_id = fato_vendas.produto_id
 JOIN dimensao_pagamento ON dimensao_pagamento.pagamento_id = fato_vendas.pagamento_id
 GROUP BY marca, pagamento_tipo;
+
+
+-- Agrupar com categorias de 3 dimensoes
+-- agrupar vendas por Trimestre, Marca e Estado
+
+SELECT trimestre,marca,estado, SUM(preco*quantidade) FROM 
+fato_vendas
+JOIN dimensao_produto ON dimensao_produto.produto_id = fato_vendas.produto_id
+JOIN dimensao_loja ON dimensao_loja.loja_id = fato_vendas.loja_id
+JOIN dimensao_data ON dimensao_data.data_id = fato_vendas.data_id
+GROUP BY trimestre,marca,estado;
