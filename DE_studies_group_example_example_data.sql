@@ -1,5 +1,6 @@
 
--- inserir dados na tabela de dimensao de produto
+-- Inserir dados
+
 
 INSERT INTO dimensao_produto (nome, descricao, categoria, marca) VALUES
 ('Ultra HD 4K TV', '55-inch Ultra HD 4K television', 'Electronics', 'Samsung'),
@@ -13,11 +14,23 @@ INSERT INTO dimensao_produto (nome, descricao, categoria, marca) VALUES
 ('Blender', 'High-power blender for smoothies and sauces', 'Kitchen Appliances', 'NutriBullet'),
 ('DSLR Camera', '24.2 MP DSLR camera with zoom lens', 'Cameras', 'Canon');
 
+INSERT INTO dimensao_produto (nome, descricao, categoria, marca) VALUES
+('Ultra HD 4K TV', '55-inch Ultra HD 4K television', 'Electronics', 'Samsung'),
+('Bluetooth Speaker', 'Portable Bluetooth speaker with deep bass', 'Electronics', 'JBL'),
+('Stainless Steel Refrigerator', 'Double-door stainless steel refrigerator', 'Home Appliances', 'LG'),
+('Noise Cancelling Headphones', 'Wireless noise-cancelling over-ear headphones', 'Electronics', 'Sony'),
+('Gaming Laptop', '15-inch gaming laptop with RTX graphics card', 'Computers', 'Dell'),
+('Air Purifier', 'HEPA-certified air purifier for home use', 'Home Appliances', 'Philips'),
+('Office Chair', 'Ergonomic office chair with adjustable height', 'Furniture', 'HermanMiller'),
+('Smart Watch', 'Fitness tracking smart watch with GPS', 'Wearables', 'Samsung'),
+('Home Theater System', 'Surround sound home theater system', 'Electronics', 'Sony'),
+('Coffee Maker', 'High-end coffee maker with multiple settings', 'Kitchen Appliances', 'Philips');
+
+
 
 
 SELECT * FROM dimensao_produto;
 
--- inserir dados na tabela de dimensao de loja
 
 INSERT INTO dimensao_loja (cidade, estado, categoria, porte, franqueada) VALUES
 ('São Paulo', 'São Paulo', 'Electronics', 'Large', TRUE),
@@ -31,10 +44,22 @@ INSERT INTO dimensao_loja (cidade, estado, categoria, porte, franqueada) VALUES
 ('Manaus', 'Amazonas', 'Home Appliances', 'Large', TRUE),
 ('Recife', 'Pernambuco', 'Furniture', 'Medium', FALSE);
 
+INSERT INTO dimensao_loja (cidade, estado, categoria, porte, franqueada) VALUES
+('São Paulo', 'São Paulo', 'Electronics', 'Large', TRUE),
+('Rio de Janeiro', 'Rio de Janeiro', 'Clothing', 'Medium', FALSE),
+('Belo Horizonte', 'Minas Gerais', 'Grocery', 'Small', TRUE),
+('Porto Alegre', 'Rio Grande do Sul', 'Electronics', 'Large', FALSE),
+('Campinas', 'São Paulo', 'Furniture', 'Medium', TRUE),
+('Curitiba', 'Paraná', 'Grocery', 'Large', FALSE),
+('Fortaleza', 'Ceará', 'Clothing', 'Small', TRUE),
+('Brasília', 'Distrito Federal', 'Electronics', 'Medium', FALSE),
+('Santos', 'São Paulo', 'Home Appliances', 'Large', TRUE),
+('Recife', 'Pernambuco', 'Furniture', 'Medium', FALSE);
+
+
 
 SELECT * FROM dimensao_loja;
 
--- inserir dados na tabela de dimensao de data
 
 INSERT INTO dimensao_data (data_venda, dia_semana, mes, semestre, trimestre, ano) VALUES
 ('2024-01-05', 5, 1, 1, 1, 2024),
@@ -50,8 +75,6 @@ INSERT INTO dimensao_data (data_venda, dia_semana, mes, semestre, trimestre, ano
 
 SELECT * FROM dimensao_data;
 
--- inserir dados na tabela de dimensao de pagamento
-
 INSERT INTO dimensao_pagamento (pagamento_tipo, descricao_tipo) VALUES
 ('Credit Card', 'Payment made using a credit card'),
 ('Debit Card', 'Payment made using a debit card'),
@@ -64,10 +87,23 @@ INSERT INTO dimensao_pagamento (pagamento_tipo, descricao_tipo) VALUES
 ('Mobile Payment', 'Payment made via mobile (e.g., Apple Pay, Google Pay)'),
 ('Store Credit', 'Payment using store-specific credit');
 
+INSERT INTO dimensao_pagamento (pagamento_tipo, descricao_tipo) VALUES
+('Credit Card', 'Payment made using a credit card'),
+('Debit Card', 'Payment made using a debit card'),
+('Cash', 'Payment made in cash'),
+('Credit Card', 'Payment made using a company-issued credit card'),
+('Bank Transfer', 'Payment made via direct bank transfer'),
+('Digital Wallet', 'Payment made using a digital wallet (e.g., PayPal)'),
+('Buy Now, Pay Later', 'Payment plan for deferred payment (e.g., Klarna)'),
+('Credit Card', 'Payment made using a travel rewards credit card'),
+('Cryptocurrency', 'Payment made using cryptocurrency'),
+('Mobile Payment', 'Payment made via mobile (e.g., Apple Pay, Google Pay)');
+
+
 
 SELECT * FROM dimensao_pagamento;
 
---inserir dados na tabela de fato
+
 
 INSERT INTO fato_vendas (produto_id, loja_id, data_id, pagamento_id, quantidade, preco) VALUES
 (1, 1, 1, 1, 3, 1299.99),
@@ -80,6 +116,20 @@ INSERT INTO fato_vendas (produto_id, loja_id, data_id, pagamento_id, quantidade,
 (8, 8, 8, 8, 3, 299.99),
 (9, 9, 9, 9, 9, 89.99),
 (10, 10, 10, 10, 10, 499.99);
+
+
+INSERT INTO fato_vendas (produto_id, loja_id, data_id, pagamento_id, quantidade, preco) VALUES
+(1, 1, 1, 1, 2, 1299.99),
+(1, 5, 2, 1, 1, 1299.99),
+(2, 2, 3, 3, 3, 79.99),
+(2, 2, 4, 3, 1, 79.99),
+(8, 6, 5, 8, 2, 299.99),
+(8, 6, 6, 8, 4, 299.99),
+(4, 4, 7, 4, 1, 199.99),
+(10, 10, 8, 10, 1, 499.99),
+(5, 5, 9, 4, 2, 1199.99),
+(5, 10, 10, 4, 1, 1199.99);
+
 
 
 
