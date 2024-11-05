@@ -1,4 +1,6 @@
 
+-- inserir dados na tabela de dimensao de produto
+
 INSERT INTO dimensao_produto (nome, descricao, categoria, marca) VALUES
 ('Ultra HD 4K TV', '55-inch Ultra HD 4K television', 'Electronics', 'Samsung'),
 ('Bluetooth Speaker', 'Portable Bluetooth speaker with deep bass', 'Electronics', 'JBL'),
@@ -15,6 +17,7 @@ INSERT INTO dimensao_produto (nome, descricao, categoria, marca) VALUES
 
 SELECT * FROM dimensao_produto;
 
+-- inserir dados na tabela de dimensao de loja
 
 INSERT INTO dimensao_loja (cidade, estado, categoria, porte, franqueada) VALUES
 ('São Paulo', 'São Paulo', 'Electronics', 'Large', TRUE),
@@ -31,6 +34,7 @@ INSERT INTO dimensao_loja (cidade, estado, categoria, porte, franqueada) VALUES
 
 SELECT * FROM dimensao_loja;
 
+-- inserir dados na tabela de dimensao de data
 
 INSERT INTO dimensao_data (data_venda, dia_semana, mes, semestre, trimestre, ano) VALUES
 ('2024-01-05', 5, 1, 1, 1, 2024),
@@ -46,6 +50,8 @@ INSERT INTO dimensao_data (data_venda, dia_semana, mes, semestre, trimestre, ano
 
 SELECT * FROM dimensao_data;
 
+-- inserir dados na tabela de dimensao de pagamento
+
 INSERT INTO dimensao_pagamento (pagamento_tipo, descricao_tipo) VALUES
 ('Credit Card', 'Payment made using a credit card'),
 ('Debit Card', 'Payment made using a debit card'),
@@ -60,3 +66,21 @@ INSERT INTO dimensao_pagamento (pagamento_tipo, descricao_tipo) VALUES
 
 
 SELECT * FROM dimensao_pagamento;
+
+--inserir dados na tabela de fato
+
+INSERT INTO fato_vendas (produto_id, loja_id, data_id, pagamento_id, quantidade, preco) VALUES
+(1, 1, 1, 1, 3, 1299.99),
+(2, 2, 2, 3, 1, 79.99),
+(3, 3, 3, 2, 2, 799.99),
+(4, 4, 4, 4, 5, 199.99),
+(5, 5, 5, 5, 1, 1199.99),
+(6, 6, 6, 6, 6, 149.99),
+(7, 7, 7, 7, 7, 349.99),
+(8, 8, 8, 8, 3, 299.99),
+(9, 9, 9, 9, 9, 89.99),
+(10, 10, 10, 10, 10, 499.99);
+
+
+
+SELECT * FROM fato_vendas;
